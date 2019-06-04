@@ -42,7 +42,7 @@ Prometheus$methods(
     } else {
       params <- c(params, timeout = parse_timeout(timeout))
     }
-    r <- httr::GET(paste0(c(host, ":", port, "/api/v1/query"), collapse = ""),
+    r <- httr::GET(paste0(c(host, "/api/v1/query"), collapse = ""),
                 query = params)
 
     # Check for particular status codes in response
@@ -98,7 +98,7 @@ Prometheus$methods(
     }
 
     r <-
-      httr::GET(paste0(c(host, ":", port, "/api/v1/query_range"), collapse = ""),
+      httr::GET(paste0(c(host, "/api/v1/query_range"), collapse = ""),
                 query = params)
 
     # Check for particular status codes in response
@@ -131,7 +131,7 @@ Prometheus$methods(
       limit = limit
     )
     r <-
-      httr::GET(paste0(c(host, ":", port, "/api/v1/targets/metadata"), collapse = ""),
+      httr::GET(paste0(c(host, "/api/v1/targets/metadata"), collapse = ""),
                 query = params)
 
     # Check for particular status codes in response
