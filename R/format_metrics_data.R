@@ -30,8 +30,10 @@ format_metrics_range_data <- function(x) {
   checkmate::assert_data_frame(x = x,
                                min.rows = 1,
                                min.cols = 2)
+  print("data is okay, renaming")
   # Clean column names
   x <- rename_metrics_data_frame(x)
+  print("renaming done, now cleaning instance name")
   x_metrics <- within(data = x$metric,
                       expr = {
                         port = as.integer(gsub(
@@ -45,6 +47,7 @@ format_metrics_range_data <- function(x) {
                                         x = instance)
                       })
 
+  print("dfs'ing")
   dfs_to_bind <- lapply(
     X = x$values,
     FUN = function(value_pair) {
