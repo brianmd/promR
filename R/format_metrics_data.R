@@ -10,11 +10,11 @@ format_metrics_instant_data <- function(x) {
   print("cleaning name/value")
   z <- within(data = x,
          expr = {
-           #port = as.integer(gsub(
-           #  pattern = "(.*):(.*)",
-           #  replacement = "\\2",
-           #  x = instance
-           #))
+           port = as.integer(gsub(
+             pattern = "(.*):(.*)",
+             replacement = "\\2",
+             x = instance
+           ))
 
            print(instance)
            instance = gsub(pattern = "(.*):(.*)",
@@ -25,7 +25,7 @@ format_metrics_instant_data <- function(x) {
            print(value)
            print(destring(value))
            print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
-           v = destring(value)
+           value = destring(value)
            print("done destringing")
            print(x)
          })
