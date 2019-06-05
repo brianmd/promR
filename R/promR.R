@@ -170,3 +170,5 @@ Prometheus$methods(
     return(metadata)
   }
 )
+
+print("done loading Prometheus")
