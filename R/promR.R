@@ -14,7 +14,7 @@ Prometheus <-
   setRefClass("Prometheus", fields = list(host = "character", port = "numeric", user = "character", pw = "character"))
 
 
-#Prometheus$methods(q = function(q) print(q))
+Prometheus$methods(q = function(q) print(q))
 
 #Prometheus$methods(
 #  q = function(q) {
@@ -41,11 +41,12 @@ Prometheus$methods(
                    timeout = NULL) {
     'Run an instant query
     '
+    params <- list(query = query)
+
     x = "in prom$query"
     print(x)
     print("in prom$query 2")
     print(query)
-    params <- list(query = query)
 
     # If time is not provided the current server time is used in query
     if (!is.null(time)) {
