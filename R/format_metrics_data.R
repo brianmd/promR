@@ -21,13 +21,12 @@ format_metrics_instant_data <- function(x) {
                            replacement = "\\1",
                            x = instance)
 
-           print(value)
            print("destringing")
+           print(value)
            value = destring(value)
            print("done destringing")
+           print(x)
          })
-   print("done with format-metrics")
-   x
 }
 
 
