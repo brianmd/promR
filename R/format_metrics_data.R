@@ -22,9 +22,11 @@ format_metrics_instant_data <- function(x) {
                            x = instance)
 
            print(value)
+           print("destringing")
            value = destring(value)
+           print("done destringing")
          })
-   print("done")
+   print("done with format-metrics")
    x
 }
 
