@@ -1,3 +1,5 @@
+print("in Prometheus")
+
 #' @title Prometheus class
 #' @description Reference Class to interface with a Prometheus Server
 #' @exportClass Prometheus
@@ -10,6 +12,15 @@
 #' prom <- Prometheus$new(host = "https://foo.bar", port = 9090, user = NULL, pw = NULL)
 Prometheus <-
   setRefClass("Prometheus", fields = list(host = "character", port = "numeric", user = "character", pw = "character"))
+
+
+#Prometheus$methods(q = function(q) print(q))
+
+#Prometheus$methods(
+#  q = function(q) {
+#    print(q)
+#  }
+#)
 
 #' @name Prometheus_query
 #' @title Prometheus Instant Query
