@@ -1,5 +1,7 @@
 print("in Prometheus")
 
+abc = 3
+
 #' @title Prometheus class
 #' @description Reference Class to interface with a Prometheus Server
 #' @exportClass Prometheus
