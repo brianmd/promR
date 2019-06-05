@@ -57,6 +57,7 @@ format_metrics_range_data <- function(x) {
     }
   )
 
+  print("reducing")
   i <- 1
   res <- Reduce(rbind,
                 lapply(
@@ -68,6 +69,7 @@ format_metrics_range_data <- function(x) {
                   }
                 ))
 
+  print("destringing")
   res <- within(data = res,
                 expr = {
                   value = destring(value)
