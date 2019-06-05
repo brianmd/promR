@@ -22,6 +22,7 @@ Prometheus <-
 #  }
 #)
 
+print("creating Prometheus$query")
 #' @name Prometheus_query
 #' @title Prometheus Instant Query
 #' @description Run a instant query against the Prometheus Server
