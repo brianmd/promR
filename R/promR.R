@@ -42,8 +42,11 @@ Prometheus$methods(
     } else {
       params <- c(params, timeout = parse_timeout(timeout))
     }
+    print("host:")
     print(host)
+    print("params:")
     print(params)
+    print("before httr::GET:")
     r <- httr::GET(paste0(c(host, "/api/v1/query"), collapse = ""),
                 query = params,
                 httr::authenticate(user,pw))
