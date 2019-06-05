@@ -45,7 +45,8 @@ Prometheus$methods(
     print(host)
     print(params)
     r <- httr::GET(paste0(c(host, "/api/v1/query"), collapse = ""),
-                query = params)
+                query = params
+                httr::authenticate(user,pw))
     print("response:")
     print(r)
 
