@@ -8,7 +8,7 @@ format_metrics_instant_data <- function(x) {
   print("renaming")
   x <- rename_metrics_data_frame(x)
   print("cleaning name/value")
-  within(data = x,
+  z <- within(data = x,
          expr = {
            #port = as.integer(gsub(
            #  pattern = "(.*):(.*)",
@@ -27,6 +27,9 @@ format_metrics_instant_data <- function(x) {
            print("done destringing")
            print(x)
          })
+  print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
+  print(z)
+  z
 }
 
 
