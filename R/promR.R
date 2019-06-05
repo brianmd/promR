@@ -82,6 +82,8 @@ Prometheus$methods(
     print("before metrics_check")
     metrics_check(metrics)
     print("after metrics_check")
+    print(metrics)
+    print("-------------------------------------------------------------------------------------------------------")
     for (row in 1:nrow(metrics)) {
       metrics$timestamp[[row]] <- metricsRaw$data$result$value[[row]][1]
       metrics$value[[row]] <- metricsRaw$data$result$value[[row]][2]
