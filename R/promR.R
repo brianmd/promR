@@ -89,6 +89,7 @@ Prometheus$methods(
     print("after for loop")
     metrics <- format_metrics_instant_data(metrics)
     print("after format")
+    print(metrics)
     return(metrics)
   }
 )
