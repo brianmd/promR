@@ -29,7 +29,10 @@ Prometheus$methods(
                    timeout = NULL) {
     'Run an instant query
     '
-    print("in prom$query")
+    x = "in prom$query"
+    print(x)
+    print("in prom$query 2")
+    print(query)
     params <- list(query = query)
 
     # If time is not provided the current server time is used in query
