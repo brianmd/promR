@@ -17,15 +17,15 @@ format_metrics_instant_data <- function(x) {
            #))
 
            print(instance)
-           #instance = gsub(pattern = "(.*):(.*)",
-           #                replacement = "\\1",
-           #                x = instance)
+           instance = gsub(pattern = "(.*):(.*)",
+                           replacement = "\\1",
+                           x = instance)
 
            print("destringing")
            print(value)
            print(destring(value))
            print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
-           # v = destring(value)
+           v = destring(value)
            print("done destringing")
            print(x)
          })
