@@ -11,6 +11,13 @@
 Prometheus <-
   setRefClass("Prometheus", fields = list(host = "character", port = "numeric", user = "character", pw = "character"))
 
+
+Prometheus$methods(
+  query = function(q) {
+    print(q)
+  }
+)
+
 #' @name Prometheus_query
 #' @title Prometheus Instant Query
 #' @description Run a instant query against the Prometheus Server
