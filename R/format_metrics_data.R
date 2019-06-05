@@ -14,10 +14,12 @@ format_metrics_instant_data <- function(x) {
            #  x = instance
            #))
 
+           print(instance)
            instance = gsub(pattern = "(.*):(.*)",
                            replacement = "\\1",
                            x = instance)
 
+           print(value)
            value = destring(value)
          })
 }
