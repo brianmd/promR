@@ -47,7 +47,7 @@ Prometheus$methods(
     r <- httr::GET(paste0(c(host, "/api/v1/query"), collapse = ""),
                 query = params,
                 httr::authenticate(user,pw))
-    print("response:")
+    print("responseee:")
     print(r)
 
     # Check for particular status codes in response
