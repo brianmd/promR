@@ -13,7 +13,7 @@ Prometheus <-
 
 
 Prometheus$methods(
-  query = function(q) {
+  q = function(q) {
     print(q)
   }
 )
