@@ -6,7 +6,7 @@
 format_metrics_instant_data <- function(x) {
   # Clean column names
   print("renaming")
-  x <- rename_metrics_data_frame(x)
+  #x <- rename_metrics_data_frame(x)
   print("cleaning name/value")
   z <- within(data = x,
          expr = {
