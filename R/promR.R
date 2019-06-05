@@ -52,10 +52,14 @@ Prometheus$methods(
 
     # Check for particular status codes in response
     response_check(r)
+    print("after response_check")
     metricsRaw <-
       jsonlite::fromJSON(httr::content(r, as = "text", encoding = "utf-8"))
+    print("before metrics from data.frame")
     metrics <- data.frame(metricsRaw$data$result$metric)
+    print("before metrics_check")
     metrics_check(metrics)
+    print("after metrics_check")
     for (row in 1:nrow(metrics)) {
       metrics$timestamp[[row]] <- metricsRaw$data$result$value[[row]][1]
       metrics$value[[row]] <- metricsRaw$data$result$value[[row]][2]
