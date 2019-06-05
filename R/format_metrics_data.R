@@ -8,11 +8,11 @@ format_metrics_instant_data <- function(x) {
   x <- rename_metrics_data_frame(x)
   within(data = x,
          expr = {
-           port = as.integer(gsub(
-             pattern = "(.*):(.*)",
-             replacement = "\\2",
-             x = instance
-           ))
+           #port = as.integer(gsub(
+           #  pattern = "(.*):(.*)",
+           #  replacement = "\\2",
+           #  x = instance
+           #))
 
            instance = gsub(pattern = "(.*):(.*)",
                            replacement = "\\1",

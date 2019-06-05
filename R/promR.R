@@ -89,7 +89,7 @@ Prometheus$methods(
       metrics$value[[row]] <- metricsRaw$data$result$value[[row]][2]
     }
     print("after for loop")
-    # metrics <- format_metrics_instant_data(metrics)
+    metrics <- format_metrics_instant_data(metrics)
     print("after format")
     print(metrics)
     return(metrics)
