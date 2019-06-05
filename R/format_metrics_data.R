@@ -27,6 +27,7 @@ format_metrics_instant_data <- function(x) {
 #'   Formats metrics data passed by range query.
 #' @rdname utilities
 format_metrics_range_data <- function(x) {
+  print("checking data")
   checkmate::assert_data_frame(x = x,
                                min.rows = 1,
                                min.cols = 2)
