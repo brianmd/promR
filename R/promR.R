@@ -9,7 +9,7 @@
 #' @examples
 #' prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
 Prometheus <-
-  setRefClass("Prometheus", fields = list(host = "character", port = "numeric"))
+  setRefClass("Prometheus", fields = list(host = "character", port = "numeric", user = "character", pw = "character"))
 
 #' @name Prometheus_query
 #' @title Prometheus Instant Query
