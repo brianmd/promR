@@ -5,9 +5,8 @@
 
 format_metrics_instant_data <- function(x) {
   # Clean column names
-  print("renaming")
+  print("NOT renaming")
   #x <- rename_metrics_data_frame(x)
-  print("cleaning name/value")
   z <- within(data = x,
          expr = {
            port = as.integer(gsub(
@@ -16,21 +15,12 @@ format_metrics_instant_data <- function(x) {
              x = instance
            ))
 
-           print(instance)
            instance = gsub(pattern = "(.*):(.*)",
                            replacement = "\\1",
                            x = instance)
 
-           print("destringing")
-           print(value)
-           print(destring(value))
-           print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
            value = destring(value)
-           print("done destringing")
-           print(x)
          })
-  print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
-  print(z)
   z
 }
 
@@ -39,14 +29,11 @@ format_metrics_instant_data <- function(x) {
 #'   Formats metrics data passed by range query.
 #' @rdname utilities
 format_metrics_range_data <- function(x) {
-  print("checking data")
   checkmate::assert_data_frame(x = x,
                                min.rows = 1,
                                min.cols = 2)
-  print("data is okay, renaming")
   # Clean column names
   x <- rename_metrics_data_frame(x)
-  print("renaming done, now cleaning instance name")
   x_metrics <- within(data = x$metric,
                       expr = {
                         port = as.integer(gsub(
@@ -60,7 +47,6 @@ format_metrics_range_data <- function(x) {
                                         x = instance)
                       })
 
-  print("dfs'ing")
   dfs_to_bind <- lapply(
     X = x$values,
     FUN = function(value_pair) {
@@ -69,7 +55,6 @@ format_metrics_range_data <- function(x) {
     }
   )
 
-  print("reducing")
   i <- 1
   res <- Reduce(rbind,
                 lapply(
@@ -81,7 +66,6 @@ format_metrics_range_data <- function(x) {
                   }
                 ))
 
-  print("destringing")
   res <- within(data = res,
                 expr = {
                   value = destring(value)

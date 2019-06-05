@@ -45,11 +45,6 @@ Prometheus$methods(
     '
     params <- list(query = query)
 
-    x = "in prom$query"
-    print(x)
-    print("in prom$query 2")
-    print(query)
-
     # If time is not provided the current server time is used in query
     if (!is.null(time)) {
       params <- c(params, time = time)
@@ -61,39 +56,21 @@ Prometheus$methods(
     } else {
       params <- c(params, timeout = parse_timeout(timeout))
     }
-    print("host:")
-    print(host)
-    print("params:")
-    print(params)
-    print("before httr::GET:")
     r <- httr::GET(paste0(c(host, "/api/v1/query"), collapse = ""),
                 query = params,
                 httr::authenticate(user,pw))
-    print("responseee:")
-    print(r)
 
     # Check for particular status codes in response
     response_check(r)
-    print("after response_check")
     metricsRaw <-
       jsonlite::fromJSON(httr::content(r, as = "text", encoding = "utf-8"))
-    print("before metrics from data.frame")
     metrics <- data.frame(metricsRaw$data$result$metric)
-    print("before metrics_check")
     metrics_check(metrics)
-    print("after metrics_check")
-    print(metrics)
-    print("-------------------------------------------------------------------------------------------------------")
     for (row in 1:nrow(metrics)) {
       metrics$timestamp[[row]] <- metricsRaw$data$result$value[[row]][1]
       metrics$value[[row]] <- metricsRaw$data$result$value[[row]][2]
     }
-    print(metrics)
-
-    print("after for loop")
     metrics <- format_metrics_instant_data(metrics)
-    print("after format")
-    print(metrics)
     return(metrics)
   }
 )
