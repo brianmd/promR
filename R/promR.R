@@ -7,7 +7,7 @@
 #' @name Prometheus-class
 #' @rdname Prometheus-class
 #' @examples
-#' prom <- Prometheus$new(host = "https://foo.bar", port = 9090)
+#' prom <- Prometheus$new(host = "https://foo.bar", port = 9090, user = NULL, pw = NULL)
 Prometheus <-
   setRefClass("Prometheus", fields = list(host = "character", port = "numeric", user = "character", pw = "character"))
 
