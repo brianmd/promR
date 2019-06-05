@@ -5,7 +5,9 @@
 
 format_metrics_instant_data <- function(x) {
   # Clean column names
+  print("renaming")
   x <- rename_metrics_data_frame(x)
+  print("cleaning name/value")
   within(data = x,
          expr = {
            #port = as.integer(gsub(
@@ -22,6 +24,8 @@ format_metrics_instant_data <- function(x) {
            print(value)
            value = destring(value)
          })
+   print("done")
+   x
 }
 
 
