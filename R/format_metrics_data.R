@@ -25,7 +25,7 @@ format_metrics_instant_data <- function(x) {
            print(value)
            print(destring(value))
            print('^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^')
-           value = destring(value)
+           v = destring(value)
            print("done destringing")
            print(x)
          })
