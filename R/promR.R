@@ -104,6 +104,8 @@ Prometheus$methods(
       end = end,
       step = step
     )
+    print("in rangeQuery")
+    print(params)
 
     # If timeout is not provided it uses server default
     if (missing(timeout)) {
@@ -112,9 +114,11 @@ Prometheus$methods(
       params <- c(params, timeout = parse_timeout(timeout))
     }
 
-    r <-
-      httr::GET(paste0(c(host, "/api/v1/query_range"), collapse = ""),
-                query = params)
+    r <- httr::GET(paste0(c(host, "/api/v1/query_range"), collapse = ""),
+                query = params,
+                httr::authenticate(user,pw))
+      #httr::GET(paste0(c(host, "/api/v1/query_range"), collapse = ""),
+      #          query = params)
 
     # Check for particular status codes in response
     response_check(r)
