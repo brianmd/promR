@@ -113,6 +113,8 @@ Prometheus$methods(
     } else {
       params <- c(params, timeout = parse_timeout(timeout))
     }
+    print('new params')
+    print(params)
 
     r <- httr::GET(paste0(c(host, "/api/v1/query_range"), collapse = ""),
                 query = params,
@@ -120,13 +122,18 @@ Prometheus$methods(
       #httr::GET(paste0(c(host, "/api/v1/query_range"), collapse = ""),
       #          query = params)
 
+    print('after httr::get')
     # Check for particular status codes in response
     response_check(r)
+    print('after response-check')
     metricsRaw <-
       jsonlite::fromJSON(httr::content(r, as = "text", encoding = "utf-8"))
+    print('after jsonlite')
     metrics <- data.frame(metricsRaw$data$result)
+    print('after data.frame instantiation')
     # Any formatting on the metrics data can take place within this function
     metrics <- format_metrics_range_data(metrics)
+    print('format metrics range')
     return(metrics)
   }
 )
