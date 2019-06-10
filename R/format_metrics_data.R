@@ -8,6 +8,7 @@ format_metrics_instant_data <- function(x) {
   print("NOT renaming")
   #x <- rename_metrics_data_frame(x)
   z <- within(data = x,
+       if (exists(instance)) {
          expr = {
            port = as.integer(gsub(
              pattern = "(.*):(.*)",
@@ -20,7 +21,11 @@ format_metrics_instant_data <- function(x) {
                            x = instance)
 
            value = destring(value)
-         })
+         }
+       } else {
+         data
+       }
+       )
   z
 }
 
