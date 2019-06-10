@@ -8,7 +8,7 @@ format_metrics_instant_data <- function(x) {
   print("NOT renaming")
   #x <- rename_metrics_data_frame(x)
   z <- within(data = x,
-       if (exists(instance)) {
+       if (exists("instance")) {
          expr = {
            port = as.integer(gsub(
              pattern = "(.*):(.*)",
