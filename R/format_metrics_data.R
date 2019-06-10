@@ -40,6 +40,7 @@ format_metrics_range_data <- function(x) {
   # Clean column names
   x <- rename_metrics_data_frame(x)
   x_metrics <- within(data = x$metric,
+                    if (exists("instance")) {
                       expr = {
                         port = as.integer(gsub(
                           pattern = "(.*):(.*)",
@@ -50,7 +51,10 @@ format_metrics_range_data <- function(x) {
                         instance = gsub(pattern = "(.*):(.*)",
                                         replacement = "\\1",
                                         x = instance)
-                      })
+                      }
+                    } else {
+                      data
+                    })
 
   dfs_to_bind <- lapply(
     X = x$values,
